@@ -1,5 +1,5 @@
 rproxy :
-  image: eforce21/letsencrypt-nginx-proxy:1.0.2
+  image: eforce21/letsencrypt-nginx-proxy:1.2.0
   ports:
     - "80:80"
     - "443:443"
@@ -7,4 +7,7 @@ rproxy :
     - "/var/run/docker.sock:/tmp/docker.sock:ro"
   environment:
     #- LETSENCRYPT_EMAIL=<your_email@domain.de>
+  log_driver: syslog
+  log_opt:
+    syslog-facility: local6
   restart: always   
