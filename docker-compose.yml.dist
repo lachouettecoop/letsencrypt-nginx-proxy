@@ -5,9 +5,10 @@ rproxy :
     - "443:443"
   volumes:
     - "/var/run/docker.sock:/tmp/docker.sock:ro"
+    - ./my_nginx_proxy.conf:/etc/nginx/conf.d/proxy.conf:ro
   environment:
     #- LETSENCRYPT_EMAIL=<your_email@domain.de>
   log_driver: syslog
   log_opt:
     syslog-facility: local6
-  restart: always   
+  restart: always
